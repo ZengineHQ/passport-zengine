@@ -1,6 +1,6 @@
 {
     "name": "passport-zengine",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "main": "./passport-zengine.js",
     "description": "Zengine (OAuth2) authentication strategies for Passport.",
     "keywords": ["passport", "zengine", "auth", "authn", "authentication", "identity"],
