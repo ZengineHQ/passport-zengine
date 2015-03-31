@@ -45,7 +45,7 @@ function Strategy(options, verify) {
   options = options || {};
   options.authorizationURL = options.authorizationURL || 'https://auth.zenginehq.com/oauth2/v1/authorize';
   options.tokenURL = options.tokenURL || 'https://auth.zenginehq.com/oauth2/v1/grant';
-  
+
   if (options.profileURL) {
     profileURL = options.profileURL;
   }
@@ -82,9 +82,14 @@ Strategy.prototype.userProfile = function(accessToken, done) {
       var json = JSON.parse(body);
 
       var profile = { provider: 'zengine' };
+
       profile.id = json.data.id;
       profile.displayName = json.data.displayName;
       profile.emails = [{ value: json.data.email }];
+      profile.settings = {
+        timezone: json.data.settings.dateFormat,
+        dateFormat: json.data.settings.dateFormat
+      };
 
       profile._raw = body.data;
 
