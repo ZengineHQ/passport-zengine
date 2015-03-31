@@ -87,7 +87,7 @@ Strategy.prototype.userProfile = function(accessToken, done) {
       profile.displayName = json.data.displayName;
       profile.emails = [{ value: json.data.email }];
       profile.settings = {
-        timezone: json.data.settings.dateFormat,
+        timezone: json.data.settings.timezone,
         dateFormat: json.data.settings.dateFormat
       };
 
